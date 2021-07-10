@@ -8,20 +8,22 @@
   </head>
 <body>
   <h1 class="title">Meu PC Ideal</h1>
-  <form class="options-form">
-    <div>
+  <form class="pc-form" method="GET">
+    <div class="pc-use-options-div">
       <label for="pcUseOptions">Quero um PC pra: </label>
       <select class="pc-use-options" name="pcUseOptions">
+        <option disabled selected>Opções</option>
         <option value="study">Estudar</option>
         <option value="play">Jogar</option>
         <option value="work">Trabalhar</option>
       </select>
     </div>
-    <div id="additionalInfoDiv" hidden>
+    <div class="additional-info-options-div" hidden>
       <label for="additionalInfo" id="additionalInfoLabel"></label>
-      <select class="additional-info" name="additionalInfo" id="additionalInfoSelect">
-        <option value="0">Sim</option>
-        <option value="1">Não</option>
+      <select class="additional-info-options" name="additionalInfo">
+        <option disabled selected>Opções</option>
+        <option value="0"></option>
+        <option value="1"></option>
       </select>
     </div>
     <div class="submit-btn">
