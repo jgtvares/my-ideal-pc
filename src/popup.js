@@ -1,8 +1,6 @@
-const additionalInfoSelect = document.getElementById('additionalInfoSelect');
-additionalInfoSelect.addEventListener('click', function() {
-    showAdditionalInfo(additionalInfoSelect.value);
+document.querySelector('.pc-use-options').addEventListener('change', (e) => {
+    showAdditionalInfo(e.target.value);
 });
-
 
 const AdditionalInfoLabelText = {
     'play': 'Você priorizaria gráfico ou performance?',
@@ -10,21 +8,32 @@ const AdditionalInfoLabelText = {
     'work': 'Seu trabalho exige a utilização de programas mais pesados?'
 }
 
+const AdditionalInfoOptionsText = {
+    first: {
+        'play': 'Gráfico',
+        'study': 'Não',
+        'work': 'Não'
+    },
+    second: {
+        'play': 'Performance',
+        'study': 'Sim',
+        'work': 'Sim'
+    }
+}
+
 function hideAdditionalInfo() {
-    document.getElementById('additionalInfoDiv').hidden = true;
+    document.querySelector('.additional-info-div').hidden = true;
 }
 
 function showAdditionalInfo(selectedUseOption) {
-    console.log('OPA!');
-    // const selectedUseOption = additionalInfoSelect.value;
-    if (selectedUseOption === 'play') setAdditionalInfoOptionsForPlayUse();
-    const additionalInfoLabel = document.getElementById('additionalInfoLabel');
+    changeAdditionalInfoOptionsText(selectedUseOption);
+    const additionalInfoLabel = document.querySelector('#additionalInfoLabel');
     additionalInfoLabel.innerText = AdditionalInfoLabelText[selectedUseOption];
-    document.getElementById('additionalInfoDiv').hidden = false;
+    document.querySelector('.additional-info-options-div').hidden = false;
 }
 
-function setAdditionalInfoOptionsForPlayUse() {
-    const additionalInfoSelect = document.getElementById('additionalInfoSelect');
-    additionalInfoSelect.options[0].text = 'Gráfico';
-    additionalInfoSelect.options[1].text = 'Performance';
+function changeAdditionalInfoOptionsText(useOption) {
+    const additionalInfoSelect = document.querySelector('.additional-info-options');
+    additionalInfoSelect.options[1].text = AdditionalInfoOptionsText.first[useOption];
+    additionalInfoSelect.options[2].text = AdditionalInfoOptionsText.second[useOption];
 }
